@@ -26,7 +26,7 @@ class SuiteDeTestes {
 		String nome = null;
 		String endereco = "Quixada, CE";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612312";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -36,7 +36,7 @@ class SuiteDeTestes {
 		String nome = "";
 		String endereco = "Quixada, CE";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612313";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -46,7 +46,7 @@ class SuiteDeTestes {
 		String nome = "     ";
 		String endereco = "Quixada, CE";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612314";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -56,7 +56,7 @@ class SuiteDeTestes {
 		String nome = "joao";
 		String endereco = null;
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612315";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -66,7 +66,7 @@ class SuiteDeTestes {
 		String nome = "joao";
 		String endereco = "";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612316";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -76,7 +76,7 @@ class SuiteDeTestes {
 		String nome = "joao";
 		String endereco = "@-ç";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612317";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
@@ -86,17 +86,17 @@ class SuiteDeTestes {
 		String nome = "joao";
 		String endereco = "/n";
 		int contato = 92054322;
-		String cpf = "12345612311";
+		String cpf = "12345612318";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
 	
 	@Test
-	public void adicionarClienteComEnderecoComContato() {
+	public void adicionarClienteComEnderecoComContatoDeUmDigito() {
 		String nome = "joao";
-		String endereco = "/n";
-		int contato = 92054322;
-		String cpf = "12345612311";
+		String endereco = "Quixada, CE";
+		int contato = 9;
+		String cpf = "12345612319";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
