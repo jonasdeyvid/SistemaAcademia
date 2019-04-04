@@ -24,7 +24,7 @@ public class ControladorCliente {
 		}
 		return false;
 	}
-	public boolean removerCliente(int cpf) {
+	public boolean removerCliente(String cpf) {
 
 		if(RepositorioCliente.getInstance().removerCliente(cpf)) {
 			return true;
@@ -32,14 +32,14 @@ public class ControladorCliente {
 		return false;
 	}
 	
-	public boolean editarCliente(int cpf, String novoEndereco ) {
+	public boolean editarCliente(String cpf, String novoEndereco ) {
 		if(RepositorioCliente.getInstance().editarCliente(cpf, novoEndereco)) {
 			return true;
 		}
 		return false;
 	}
 	
-	public Cliente buscarCliente(int cpf) {
+	public Cliente buscarCliente(String cpf) {
 		Cliente cliente = RepositorioCliente.getInstance().buscarCliente(cpf);
 		return cliente;
 	}
