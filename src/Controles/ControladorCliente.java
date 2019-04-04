@@ -9,7 +9,7 @@ public class ControladorCliente {
 	private ControladorCliente() {
 		
 	}
-	public ControladorCliente getInstance() {
+	public static ControladorCliente getInstance() {
 		if(controler == null) {
 			return controler = new ControladorCliente();
 		}
