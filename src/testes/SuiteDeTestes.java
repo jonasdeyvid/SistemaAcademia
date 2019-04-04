@@ -14,7 +14,7 @@ class SuiteDeTestes {
 	@Test
 	public void testaAdicaoDeCliente() {
 		String nome = "joao";
-		String endereco = "Quixada, CE";
+		String endereco = "Quixada CE";
 		int contato = 92054322;
 		String cpf = "12345612311";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
@@ -92,7 +92,7 @@ class SuiteDeTestes {
 	}
 	
 	@Test
-	public void adicionarClienteComEnderecoComContatoDeUmDigito() {
+	public void adicionarClienteComContatoDeUmDigito() {
 		String nome = "joao";
 		String endereco = "Quixada, CE";
 		int contato = 9;
