@@ -20,11 +20,53 @@ public class ControladorCliente {
 	
 	public boolean addCliente(String nome, String endereco, int contato, int cpf) {
 		Cliente cliente = new Cliente(nome, endereco, contato, cpf);
-		RepositorioCliente repositorio = null;
-		if(repositorio.getInstance().addCliente(cliente)) {
+		if(RepositorioCliente.getInstance().addCliente(cliente)) {
+			return true;
+		}
+		return false;
+	}
+	public boolean removerCliente(int cpf) {
+
+		if(RepositorioCliente.getInstance().removerCliente(cpf)) {
 			return true;
 		}
 		return false;
 	}
 	
+	public boolean editarCliente(int cpf, String novoEndereco ) {
+		if(RepositorioCliente.getInstance().editarCliente(cpf, novoEndereco)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Cliente buscarCliente(int cpf) {
+		Cliente cliente = RepositorioCliente.getInstance().buscarCliente(cpf);
+		if(cliente == null) {
+			
+		}
+		return cliente;
+	}
+	
 }	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
