@@ -1,5 +1,6 @@
 package Controles;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Carro;
@@ -50,6 +51,18 @@ public class RepositorioCarro {
 		buscarCarro(placa).setPrecoAluguel(novoPreco);
 		return true;
 	}
+	
+	public List<Carro> carrosDisponiveis(){
+		List<Carro> carrosDisponieis = new ArrayList<Carro>();
+		for (Carro carro : carros) {
+			if(!carro.isAlugado()) {
+				carrosDisponieis.add(carro);
+			}
+		}
+		return carrosDisponieis;
+	}
+	
+	
 }
 
 

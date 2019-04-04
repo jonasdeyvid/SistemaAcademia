@@ -6,7 +6,7 @@ public class Carro {
 	private String cor;
 	private int ano;
 	private float precoAluguel;
-	
+	private boolean alugado;
 	public Carro() {
 		
 	}
@@ -17,6 +17,16 @@ public class Carro {
 		this.cor = cor;
 		this.ano = ano;
 		this.precoAluguel = precoAluguel;
+		this.alugado = false;
+	}
+	
+
+	public boolean isAlugado() {
+		return alugado;
+	}
+
+	public void setAlugado(boolean alugado) {
+		this.alugado = alugado;
 	}
 
 	public String getModelo() {

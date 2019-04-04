@@ -1,5 +1,7 @@
 package Controles;
 
+import java.util.List;
+
 import Entidades.Carro;
 
 public class ControladorCarro {
@@ -41,6 +43,12 @@ public class ControladorCarro {
 		}
 		return false;
 	}
+	
+	public List<Carro> carrosDisponiveis(){
+		return RepositorioCarro.getInstance().carrosDisponiveis();
+	}
+	
+	
 	
 	
 }

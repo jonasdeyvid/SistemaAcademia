@@ -23,7 +23,7 @@ public class RepositorioCliente {
 	
 	public boolean addCliente(Cliente client) {
 		for (Cliente cliente : clientes) {
-			if(cliente.getCpf() == client.getCpf()) {
+			if(cliente.getCpf().equals(client.getCpf())) {
 				return false;
 			}
 		}
