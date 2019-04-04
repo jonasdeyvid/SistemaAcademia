@@ -84,7 +84,7 @@ class SuiteDeTestes {
 	@Test
 	public void adicionarClienteComEnderecoComBarraN() {
 		String nome = "joao";
-		String endereco = "/n";
+		String endereco = "\n";
 		int contato = 92054322;
 		String cpf = "12345612318";
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);

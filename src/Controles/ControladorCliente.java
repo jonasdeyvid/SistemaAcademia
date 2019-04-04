@@ -18,9 +18,13 @@ public class ControladorCliente {
 	
 	
 	public boolean addCliente(String nome, String endereco, int contato, String cpf) {
-		if(nome == null || nome.equals("") || nome.equals("     ") || !(nome.equals("[A-Za-z]")) || nome.equals("\n")) return false;
-		if(endereco == null || endereco.equals("") || endereco.equals("   ")) return false;
+		if(nome == null || nome.equals("")  || nome.equals("     ")) return false;
+		nome = nome.replace(" ", " ");
+		if(nome.length() == 0) return false;
+		if(endereco == null || endereco.equals("") || endereco.equals("\n") || endereco.contains("@-ç")) return false;
 		if(cpf.length() != 11) return false;
+		String cont = Integer.toString(contato);
+		if(cont.length() < 8) return false;
 		if(!(nome.substring(0, 3).matches("[A-Z a-z]*")) )return false;
 		
 		Cliente cliente = new Cliente(nome, endereco, contato, cpf);
