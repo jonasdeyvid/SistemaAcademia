@@ -1,6 +1,5 @@
 package Controles;
 
-import com.sun.security.ntlm.Client;
 
 import Entidades.Cliente;
 
@@ -18,7 +17,7 @@ public class ControladorCliente {
 	}
 	
 	
-	public boolean addCliente(String nome, String endereco, int contato, int cpf) {
+	public boolean addCliente(String nome, String endereco, int contato, String cpf) {
 		Cliente cliente = new Cliente(nome, endereco, contato, cpf);
 		if(RepositorioCliente.getInstance().addCliente(cliente)) {
 			return true;
@@ -42,9 +41,6 @@ public class ControladorCliente {
 	
 	public Cliente buscarCliente(int cpf) {
 		Cliente cliente = RepositorioCliente.getInstance().buscarCliente(cpf);
-		if(cliente == null) {
-			
-		}
 		return cliente;
 	}
 	

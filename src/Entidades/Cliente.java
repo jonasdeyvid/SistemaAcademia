@@ -4,12 +4,12 @@ public class Cliente {
 	private String nome;
 	private String endereco;
 	private int contato;
-	private int cpf;
+	private String cpf;
 	
 	public Cliente() {
 		
 	}
-	public Cliente(String nome, String endereco, int contato, int cpf) {
+	public Cliente(String nome, String endereco, int contato, String cpf) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.contato = contato;
@@ -33,10 +33,10 @@ public class Cliente {
 	public void setContato(int contato) {
 		this.contato = contato;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	

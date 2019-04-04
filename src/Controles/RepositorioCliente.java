@@ -32,9 +32,9 @@ public class RepositorioCliente {
 
 	}
 	
-	public boolean removerCliente(int cpf) {
+	public boolean removerCliente(String cpf) {
 		for (Cliente cliente : clientes) {
-			if(cliente.getCpf() == cpf) {
+			if(cliente.getCpf().equals(cpf)) {
 				clientes.remove(cliente);
 				return true;
 			}
@@ -42,9 +42,9 @@ public class RepositorioCliente {
 		return false;
 	}
 	
-	public boolean editarCliente(int cpf , String novoEndereco) {
+	public boolean editarCliente(String cpf , String novoEndereco) {
 		for (Cliente cliente : clientes) {
-			if(cliente.getCpf() == cpf) {
+			if(cliente.getCpf().equals(cpf)) {
 				cliente.setEndereco(novoEndereco);
 				return true;
 			}
@@ -52,9 +52,9 @@ public class RepositorioCliente {
 		return false;
 	}
 	
-	public Cliente buscarCliente(int cpf) {
+	public Cliente buscarCliente(String cpf) {
 		for (Cliente cliente : clientes) {
-			if(cliente.getCpf() == cpf) {
+			if(cliente.getCpf().equals(cpf)) {
 				return cliente;
 			}
 		}
