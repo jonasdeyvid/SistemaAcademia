@@ -19,9 +19,9 @@ public class ControladorCarro {
 	}
 	
 	public boolean addCarro(String modelo, String placa, String cor, int ano, float precoAluguel) {
-		if(modelo ==  null)  throw new IllegalArgumentException("modelo não pode ser nulo ") ; // vi na internet não sei como funciona qqr coisa tira 
-		if(placa ==  null)  throw new IllegalArgumentException("placa não pode ser nula");
-		if(cor ==  null)  throw new IllegalArgumentException("cor não pode ser nula");
+		if(modelo ==  null)  throw new IllegalArgumentException("modelo nao pode ser nulo ") ; // vi na internet não sei como funciona qqr coisa tira 
+		if(placa ==  null)  throw new IllegalArgumentException("placa nao pode ser nula");
+		if(cor ==  null)  throw new IllegalArgumentException("cor nao pode ser nula");
 		if(ano > 2019) return false; // tem que melhorar isso aqui 
 		if(precoAluguel <= 0) return false;
 		
@@ -31,7 +31,7 @@ public class ControladorCarro {
 	}
 	
 	public boolean removerCarro(String placa) {
-		if(placa ==  null)  throw new IllegalArgumentException("placa não pode ser nula");
+		if(placa ==  null)  throw new IllegalArgumentException("placa nao pode ser nula");
 		if(RepositorioCarro.getInstance().removerCarro(placa)) {
 			return true;
 		}
