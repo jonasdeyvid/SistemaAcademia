@@ -106,11 +106,29 @@ class SuiteDeTestes {
 
 	//busca
 	@Test
-	public void BuscarClienteCpfValido(){
+	public void buscarClienteCpfValido(){
 		String cpfCliente = "12345678911";
 		ControladorCliente.getInstance().addCliente("joao", "Quixada, CE", 12345678, cpfCliente);
 		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
 		assertEquals("joao", c.getNome());
+	}
+	
+	@Test
+	public void buscarClienteCpfNulo() {
+		Cliente c = ControladorCliente.getInstance().buscarCliente(null);
+		assertEquals(null, c);
+	}
+	
+	@Test
+	public void buscarClienteCpfVazio() {
+		Cliente c = ControladorCliente.getInstance().buscarCliente("");
+		assertEquals(null, c);
+	}
+	
+	@Test
+	public void buscarClienteCaracteresEspeciais() {
+		Cliente c = ControladorCliente.getInstance().buscarCliente("@Çç#_  _+-\\n");
+		assertEquals(null, c);
 	}
 	
 	//remocao
@@ -138,5 +156,91 @@ class SuiteDeTestes {
 		assertEquals(false, retorno);
 	}
 	
+	@Test
+	public void removerClienteCaracteresEspeciais() {
+		boolean retorno = ControladorCliente.getInstance().removerCliente("@Çç#_  _+-\n");
+		assertEquals(false, retorno);
+	}
 	
+	//edicao
+	@Test
+	public void editarClienteValido() {
+		String enderecoNovo = "Fortaleza, CE";
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", "Quixada, CE", 12345678, cpfCliente);
+		ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals(enderecoNovo, c.getEndereco());
+	}
+	
+	@Test
+	public void editarClienteCpfNulo() {
+		String enderecoNovo = "Fortaleza, CE";
+		String cpfCliente = null;
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void editarClienteCpfVazio() {
+		String enderecoNovo = "Fortaleza, CE";
+		String cpfCliente = "";
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void editarClienteCpfEspecial() {
+		String enderecoNovo = "Fortaleza, CE";
+		String cpfCliente = "ç\n_-!@#$%¨";
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void editarClienteEnderecoValido() {
+		String enderecoNovo = "Fortaleza, CE";
+		String enderecoAntigo = "Quixada, CE";
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", enderecoAntigo, 12345678, cpfCliente);
+		ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals(enderecoNovo, c.getEndereco());
+	}
+	
+	@Test
+	public void editarClienteEnderecoNulo() {
+		String enderecoNovo = null;
+		String enderecoAntigo = "Quixada, CE";
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", enderecoAntigo, 12345678, cpfCliente);
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals(false, retorno);
+		assertEquals(enderecoAntigo, c.getEndereco());
+	}
+	
+	@Test
+	public void editarClienteEnderecoVazio() {
+		String enderecoNovo = "";
+		String enderecoAntigo = "Quixada, CE";
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", enderecoAntigo, 12345678, cpfCliente);
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals(false, retorno);
+		assertEquals(enderecoAntigo, c.getEndereco());
+	}
+	
+	@Test
+	public void editarClienteEnderecoEspecial() {
+		String enderecoNovo = "ç\\n_-!@#$%¨";
+		String enderecoAntigo = "Quixada, CE";
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", enderecoAntigo, 12345678, cpfCliente);
+		boolean retorno = ControladorCliente.getInstance().editarCliente(cpfCliente, enderecoNovo);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals(false, retorno);
+		assertEquals(enderecoAntigo, c.getEndereco());
+	}
 }
