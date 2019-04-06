@@ -26,7 +26,8 @@ public class ControladorCliente {
 		String cont = Integer.toString(contato);
 		if(cont.length() < 8) return false;
 		if(!(nome.substring(0, 3).matches("[A-Z a-z]*")) )return false;
-		
+		if(!(endereco.substring(0, 3).matches("[A-Z a-z]*")) )return false;
+
 		Cliente cliente = new Cliente(nome, endereco, contato, cpf);
 		if(RepositorioCliente.getInstance().addCliente(cliente)) {
 			return true;
