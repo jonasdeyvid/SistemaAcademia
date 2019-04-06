@@ -1,16 +1,19 @@
 package testes;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 import Controles.ControladorCliente;
+import Entidades.Cliente;
 
 class SuiteDeTestes {
 
 	
 	//testes de cliente
+	//adicao
 	@Test
 	public void testaAdicaoDeCliente() {
 		String nome = "joao";
@@ -100,4 +103,40 @@ class SuiteDeTestes {
 		boolean retorno = ControladorCliente.getInstance().addCliente(nome, endereco, contato, cpf);
 		assertEquals(false, retorno);
 	}
+
+	//busca
+	@Test
+	public void BuscarClienteCpfValido(){
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", "Quixada, CE", 12345678, cpfCliente);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals("joao", c.getNome());
+	}
+	
+	//remocao
+	@Test
+	public void removerClienteCpfValido() {
+		String cpfCliente = "12345678911";
+		ControladorCliente.getInstance().addCliente("joao", "Quixada, CE", 12345678, cpfCliente);
+		Cliente c = ControladorCliente.getInstance().buscarCliente(cpfCliente);
+		assertEquals("joao", c.getNome());
+		boolean retorno = ControladorCliente.getInstance().removerCliente(cpfCliente);
+		assertEquals(true, retorno);
+		retorno = ControladorCliente.getInstance().removerCliente(cpfCliente);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void removerClienteCpfNulo() {
+		boolean retorno = ControladorCliente.getInstance().removerCliente(null);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void removerClienteCpfVazio() {
+		boolean retorno = ControladorCliente.getInstance().removerCliente("");
+		assertEquals(false, retorno);
+	}
+	
+	
 }
