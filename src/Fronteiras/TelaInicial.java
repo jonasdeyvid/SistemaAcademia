@@ -18,11 +18,10 @@ public class TelaInicial {
 				TelaCadastrarCliente.mostrar();
 				break;
 			case 2:
-				
+				TelaRemoverCliente.mostrar();
 				break;
-				
 			case 3: 
-				
+				TelaEditarCliente.mostrar();
 				break;
 				
 			case 4:

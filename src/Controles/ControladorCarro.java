@@ -31,6 +31,7 @@ public class ControladorCarro {
 	}
 	
 	public boolean removerCarro(String placa) {
+		if(placa ==  null)  throw new IllegalArgumentException("placa não pode ser nula");
 		if(RepositorioCarro.getInstance().removerCarro(placa)) {
 			return true;
 		}

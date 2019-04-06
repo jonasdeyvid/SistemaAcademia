@@ -34,15 +34,18 @@ public class ControladorCliente {
 		return false;
 	}
 	public boolean removerCliente(String cpf) {
-
+		if(cpf.length() != 11) return false;
 		if(RepositorioCliente.getInstance().removerCliente(cpf)) {
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean editarCliente(String cpf, String novoEndereco ) {
-		if(RepositorioCliente.getInstance().editarCliente(cpf, novoEndereco)) {
+	public boolean editarCliente(String cpf, String endereco ) {
+		if(endereco == null || endereco.equals("") || endereco.equals("\n") || endereco.contains("@-ç")) return false;
+		if(cpf.length() != 11) return false;
+
+		if(RepositorioCliente.getInstance().editarCliente(cpf, endereco)) {
 			return true;
 		}
 		return false;

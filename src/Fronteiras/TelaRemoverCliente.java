@@ -12,6 +12,8 @@ public class TelaRemoverCliente {
 		
 		if(ControladorCliente.getInstance().removerCliente(cpf)) {
 			System.out.println("Cliente removido com sucesso!");
+		}else {
+			System.out.println("erro ao remover cliente!");
 		}
 	}
 }
