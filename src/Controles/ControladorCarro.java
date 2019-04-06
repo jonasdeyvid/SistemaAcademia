@@ -48,6 +48,27 @@ public class ControladorCarro {
 	public List<Carro> carrosDisponiveis(){
 		return RepositorioCarro.getInstance().carrosDisponiveis();
 	}
+	public boolean alugarCarro(String placa) {
+		for (Carro carro : RepositorioCarro.getInstance().carrosDisponiveis()) {
+			if(carro.getPlaca().equals(placa)) {
+				carro.setAlugado(true);
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean devolverCarro(String placa) {
+		for (Carro carro : RepositorioCarro.getInstance().getCarros()) {
+			if(carro.getPlaca().equals(placa)) {
+				if(carro.isAlugado() == true) {
+					carro.setAlugado(false);
+					return true;
+				}
+			}
+			
+		}
+		return false;
+	}
 	
 	
 	

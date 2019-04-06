@@ -1,6 +1,8 @@
 package Controles;
 
 
+import java.util.List;
+
 import Entidades.Cliente;
 
 public class ControladorCliente {
@@ -57,6 +59,16 @@ public class ControladorCliente {
 	public Cliente buscarCliente(String cpf) {
 		Cliente cliente = RepositorioCliente.getInstance().buscarCliente(cpf);
 		return cliente;
+	}
+	public List<Cliente> listaClientes(){
+		return RepositorioCliente.getInstance().getClientes();
+	}
+	
+	public boolean alugarCarro(String placa) {
+		return ControladorCarro.getInstance().alugarCarro(placa);
+	}
+	public boolean devolverCarro(String placa) {
+		return ControladorCarro.getInstance().devolverCarro(placa);
 	}
 	
 	

@@ -61,7 +61,10 @@ public class RepositorioCarro {
 		}
 		return carrosDisponieis;
 	}
-	
+	public List<Carro> getCarros() {
+		return carros;
+	}
+
 	
 }
 

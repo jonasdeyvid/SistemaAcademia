@@ -60,6 +60,9 @@ public class RepositorioCliente {
 		}
 		return null;
 	}
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
 	
 }
 

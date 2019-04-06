@@ -39,5 +39,8 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
+	@Override
+	public String toString() {
+		return "nome= " + nome + ", endereco= " + endereco + ", contato=" + contato + ", cpf=" + cpf ;
+	}
 }

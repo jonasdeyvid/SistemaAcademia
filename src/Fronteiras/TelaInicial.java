@@ -2,6 +2,9 @@ package Fronteiras;
 
 import java.util.Scanner;
 
+import Controles.ControladorCliente;
+import Entidades.Cliente;
+
 public class TelaInicial {
 	
 	public static void main(String[] args) {
@@ -10,8 +13,8 @@ public class TelaInicial {
 		Scanner input = new Scanner(System.in);
 		while(!parar) {
 			System.out.println(" [1] Cadastrar Cliente \n [2] Remover Cliente \n [3] Editar Cliente \n "
-					+ "[4] Buscar Cliente \n [5] Cadastrar Carro \n [6] Editar Carro \n [7] Buscar Carro \n"
-					+ " [8] Mostrar Carros Disponiveis");
+					+ "[4] Buscar Cliente \n [5] Mostrar Clientes \n [6] Cadastrar Carro \n [7] Editar Carro \n [8] Buscar Carro \n"
+					+ " [9] Mostrar Carros Disponiveis");
 			escolha = input.nextInt();
 			switch(escolha) {
 			case 1:
@@ -25,15 +28,15 @@ public class TelaInicial {
 				break;
 				
 			case 4:
-				
+				TelaBuscarCliente.mostrar();
 				break;
 				
 			case 5:
-				
+				TelaMostrarClientes.mostrar();
 				break;
 				
 			case 6:
-			
+				
 				break;
 				
 			case 7:
