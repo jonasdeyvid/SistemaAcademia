@@ -68,6 +68,12 @@ public class Carro {
 	public void setPrecoAluguel(float precoAluguel) {
 		this.precoAluguel = precoAluguel;
 	}
+
+	@Override
+	public String toString() {
+		return "modelo=" + modelo + ", placa=" + placa + ", cor=" + cor + ", ano=" + ano + ", precoAluguel="
+				+ precoAluguel + ", alugado=" + alugado + "\n";
+	}
 	
 	
 	

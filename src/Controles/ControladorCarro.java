@@ -1,5 +1,6 @@
 package Controles;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Carro;
@@ -69,8 +70,13 @@ public class ControladorCarro {
 		}
 		return false;
 	}
+	public Carro buscarCarro(String placa) {
+		return RepositorioCarro.getInstance().buscarCarro(placa);
+	}
 	
-	
+	public List<Carro> getCarros(){
+		return RepositorioCarro.getInstance().getCarros();
+	}
 	
 	
 }

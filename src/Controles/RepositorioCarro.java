@@ -10,7 +10,7 @@ public class RepositorioCarro {
 	private List<Carro> carros;
 	
 	private RepositorioCarro() {
-		
+		carros = new ArrayList<Carro>();
 	}
 	public static RepositorioCarro getInstance() {
 		if(repositorio == null) {
