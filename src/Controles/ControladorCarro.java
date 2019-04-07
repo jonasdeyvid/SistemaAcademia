@@ -20,9 +20,9 @@ public class ControladorCarro {
 	}
 	
 	public boolean addCarro(String modelo, String placa, String cor, int ano, float precoAluguel) {
-		if(modelo ==  null)  throw new IllegalArgumentException("modelo nao pode ser nulo ") ; // vi na internet não sei como funciona qqr coisa tira 
-		if(placa ==  null)  throw new IllegalArgumentException("placa nao pode ser nula");
-		if(cor ==  null)  throw new IllegalArgumentException("cor nao pode ser nula");
+		if(modelo ==  null || modelo.equals(""))  return false ; // vi na internet não sei como funciona qqr coisa tira 
+		if(placa ==  null)  return false;
+		if(cor ==  null)  return false;
 		if(ano > 2019) return false; // tem que melhorar isso aqui 
 		if(precoAluguel <= 0) return false;
 		

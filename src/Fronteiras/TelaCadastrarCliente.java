@@ -25,6 +25,8 @@ public class TelaCadastrarCliente {
 
 		if(ControladorCliente.getInstance().addCliente(nome, end, tel, cpf)) {
 			System.out.println("Usuario Cadastrado com sucesso!");
+		}else {
+			System.out.println("Erro ao adicionar usuario");
 		}
 	}
 }
