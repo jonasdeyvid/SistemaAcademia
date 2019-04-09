@@ -243,4 +243,66 @@ class SuiteDeTestes {
 		assertEquals(false, retorno);
 		assertEquals(enderecoAntigo, c.getEndereco());
 	}
+	
+	//testes de carro
+	//adicao
+	@Test
+	public void adicionarCarroValido() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		float precoAluguel = 120;
+	}
+	
+	@Test
+	public void adicionarCarroModeloNulo() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroModeloVazio() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroModeloEspecial() {
+		
+	}
+	
+	
+	@Test
+	public void adicionarCarroPlacaNulo() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroPlacaVazio() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroPlacaEspecial() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroCorNulo() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroCorVazio() {
+		
+	}
+	
+	@Test
+	public void adicionarCarroCorEspecial() {
+		
+	}
+	
+	//remocao
+	//busca
+	//edicao
+	
 }

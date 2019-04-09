@@ -5,13 +5,13 @@ public class Carro {
 	private String placa ;
 	private String cor;
 	private int ano;
-	private float precoAluguel;
+	private double precoAluguel;
 	private boolean alugado;
 	public Carro() {
 		
 	}
 
-	public Carro(String modelo, String placa, String cor, int ano, float precoAluguel) {
+	public Carro(String modelo, String placa, String cor, int ano, double precoAluguel) {
 		this.modelo = modelo;
 		this.placa = placa;
 		this.cor = cor;

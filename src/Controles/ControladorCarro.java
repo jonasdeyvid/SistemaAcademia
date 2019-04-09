@@ -19,8 +19,8 @@ public class ControladorCarro {
 		return controler;
 	}
 	
-	public boolean addCarro(String modelo, String placa, String cor, int ano, float precoAluguel) {
-		if(modelo ==  null || modelo.equals(""))  return false ; // vi na internet não sei como funciona qqr coisa tira 
+	public boolean addCarro(String modelo, String placa, String cor, int ano, double precoAluguel) {
+		if(modelo ==  null || modelo.equals(""))  return false ; // vi na internet nï¿½o sei como funciona qqr coisa tira 
 		if(placa ==  null)  return false;
 		if(cor ==  null)  return false;
 		if(ano > 2019) return false; // tem que melhorar isso aqui 
