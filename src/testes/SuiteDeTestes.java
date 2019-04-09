@@ -4,8 +4,11 @@ package testes;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
+import Controles.ControladorCarro;
 import Controles.ControladorCliente;
 import Entidades.Cliente;
 
@@ -252,52 +255,184 @@ class SuiteDeTestes {
 		String placa = "hxa1234";
 		String cor = "branco";
 		int ano = 2015;
-		float precoAluguel = 120;
+		double precoAluguel = 120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(true, retorno);
+		
 	}
 	
 	@Test
 	public void adicionarCarroModeloNulo() {
+		String modelo = null;
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroModeloVazio() {
+		String modelo = "";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroModeloEspecial() {
+		String modelo = "ç\\n_-!@#$%¨";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	
 	@Test
 	public void adicionarCarroPlacaNulo() {
+		String modelo = "gol";
+		String placa = null;
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroPlacaVazio() {
+		String modelo = "gol";
+		String placa = "";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroPlacaEspecial() {
+		String modelo = "gol";
+		String placa = "ç\\\\n_-!@#$%¨";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
-	public void adicionarCarroCorNulo() {
+	public void adicionarCarroCorNula() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = null;
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroCorVazio() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "";
+		int ano = 2015;
+		double precoAluguel = 120;
 		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 	}
 	
 	@Test
 	public void adicionarCarroCorEspecial() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "ç\\\\\\\\n_-!@#$%¨";
+		int ano = 2015;
+		double precoAluguel = 120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void adicionarCarroAnoNegativo() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = -2015;
+		double precoAluguel = 120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
+		
+	}
+	
+	@Test
+	public void adicionarCarroAnoSeguinteQueAindaNaoChegou() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = LocalDate.now().getYear() + 1;
+		double precoAluguel = 120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
+		
+	}
+
+	@Test
+	public void adicionarCarroAnoAntesDaInvencaodoCarro1880() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 1879;
+		double precoAluguel = 120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
+		
+	}
+	
+	@Test
+	public void adicionarCarroPrecoNegativo() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = -120;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
+		
+	}
+	
+	@Test
+	public void adicionarCarroPrecoMenorInteiro() {
+		String modelo = "gol";
+		String placa = "hxa1234";
+		String cor = "branco";
+		int ano = 2015;
+		double precoAluguel = Integer.MIN_VALUE;
+		
+		boolean retorno = ControladorCarro.getInstance().addCarro(modelo, placa, cor, ano, precoAluguel);
+		assertEquals(false, retorno);
 		
 	}
 	
