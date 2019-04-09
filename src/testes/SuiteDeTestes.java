@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import Controles.ControladorCarro;
 import Controles.ControladorCliente;
+import Entidades.Carro;
 import Entidades.Cliente;
 
 class SuiteDeTestes {
@@ -437,7 +438,59 @@ class SuiteDeTestes {
 	}
 	
 	//remocao
+	@Test
+	public void removerCarroValido() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().removerCarro("hxa1234");
+		assertEquals(true, retorno);
+	}
+	
+	@Test
+	public void removerCarroPlacaNula() {
+		adicionarCarroValido();
+		try {
+			ControladorCarro.getInstance().removerCarro(null);
+		}catch (IllegalArgumentException ex) {
+			assertEquals("placa nao pode ser nula", ex.getMessage());
+		}
+	}
+	
+	@Test
+	public void removerCarroPlacaVazia() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().removerCarro("");
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void removerCarroPlacaEspecial() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().removerCarro("Ç/n//!@#%$%&");
+		assertEquals(false, retorno);
+	}
 	//busca
+	@Test
+	public void buscarCarroValido() {
+		adicionarCarroValido();
+		Carro c = ControladorCarro.getInstance().buscarCarro("hxa1234");
+		assertEquals("gol", c.getModelo());
+	}
+	
+	@Test
+	public void buscarCarroPlacaNula() {
+		adicionarCarroValido();
+		Carro c = ControladorCarro.getInstance().buscarCarro(null);
+		assertEquals(null, c);
+	}
+	
+	@Test
+	public void buscarCarroInexistente() {
+		adicionarCarroValido();
+		Carro c = ControladorCarro.getInstance().buscarCarro("hxa1235");
+		assertEquals(null, c);
+	}
+	
+	
 	//edicao
 	
 }

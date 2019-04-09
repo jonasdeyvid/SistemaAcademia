@@ -65,7 +65,7 @@ public class Carro {
 		return precoAluguel;
 	}
 
-	public void setPrecoAluguel(float precoAluguel) {
+	public void setPrecoAluguel(double precoAluguel) {
 		this.precoAluguel = precoAluguel;
 	}
 

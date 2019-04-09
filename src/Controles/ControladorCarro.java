@@ -39,7 +39,7 @@ public class ControladorCarro {
 		return false;
 	}
 	
-	public boolean editarPrecoCarro(String placa, float novoPreco) {
+	public boolean editarPrecoCarro(String placa, double novoPreco) {
 		if(RepositorioCarro.getInstance().editarPrecoCarro(placa, novoPreco)){
 			return true;
 		}

@@ -44,7 +44,7 @@ public class RepositorioCarro {
 		return null;
 	}
 	
-	public boolean editarPrecoCarro(String placa, float novoPreco) {
+	public boolean editarPrecoCarro(String placa, double novoPreco) {
 		if(buscarCarro(placa) == null) {
 			return false;
 		}
