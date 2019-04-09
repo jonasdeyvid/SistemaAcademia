@@ -61,7 +61,7 @@ public class Carro {
 		this.ano = ano;
 	}
 
-	public float getPrecoAluguel() {
+	public double getPrecoAluguel() {
 		return precoAluguel;
 	}
 
