@@ -510,4 +510,43 @@ class SuiteDeTestes {
 		assertEquals(true, c.getPrecoAluguel() == 120);
 	}
 	
+	//aluguel de carro
+	@Test
+	public void alugarCarroValido() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().alugarCarro("hxa1234");
+		assertEquals(true, retorno);
+	}
+	
+	@Test
+	public void alugarCarroJaALugado() {
+		adicionarCarroValido();
+		ControladorCarro.getInstance().alugarCarro("hxa1234");
+		boolean retorno = ControladorCarro.getInstance().alugarCarro("hxa1234");
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void alugarCarroInexistente() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().alugarCarro("hxa1235");
+		assertEquals(false, retorno);
+	}
+	
+	@Test
+	public void alugarCarroPlacaNula() {
+		boolean retorno = ControladorCarro.getInstance().alugarCarro(null);
+		assertEquals(false, retorno);
+	}
+	
+	//devolucao de carro
+	@Test
+	public void devolverCarroValido() {
+		alugarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().devolverCarro("hxa1234");
+		assertEquals(true, retorno);
+		Carro c = ControladorCarro.getInstance().buscarCarro("hxa1234");
+		assertEquals(false, c.isAlugado());
+	}
+	
 }
