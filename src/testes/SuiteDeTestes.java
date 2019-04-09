@@ -492,5 +492,22 @@ class SuiteDeTestes {
 	
 	
 	//edicao
+	@Test
+	public void editarPrecoCarroValido() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().editarPrecoCarro("hxa1234", 200);
+		Carro c = ControladorCarro.getInstance().buscarCarro("hxa1234");
+		assertEquals(true, retorno);
+		assertEquals(true, c.getPrecoAluguel() == 200);
+	}
+	
+	@Test
+	public void editarCarroPrecoNegativo() {
+		adicionarCarroValido();
+		boolean retorno = ControladorCarro.getInstance().editarPrecoCarro("hxa1234", -200);
+		Carro c = ControladorCarro.getInstance().buscarCarro("hxa1234");
+		assertEquals(false, retorno);
+		assertEquals(true, c.getPrecoAluguel() == 120);
+	}
 	
 }
