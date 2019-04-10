@@ -39,6 +39,7 @@ public class ControladorCliente {
 	}
 	
 	public boolean removerCliente(String cpf) {
+		if(cpf == null) return false;
 		if(cpf.length() != 11) return false;
 		if(RepositorioCliente.getInstance().removerCliente(cpf)) {
 			return true;
@@ -47,7 +48,9 @@ public class ControladorCliente {
 	}
 	
 	public boolean editarCliente(String cpf, String endereco ) {
-		if(endereco == null || endereco.equals("") || endereco.equals("\n") || endereco.contains("@-ç")) return false;
+		if(cpf == null) return false;
+		if(endereco == null || endereco.equals("") || endereco.equals("\n")) return false;
+		if(!(endereco.substring(0, 3).matches("[A-Z a-z]*")) )return false;
 		if(cpf.length() != 11) return false;
 
 		if(RepositorioCliente.getInstance().editarCliente(cpf, endereco)) {
@@ -57,6 +60,7 @@ public class ControladorCliente {
 	}
 	
 	public Cliente buscarCliente(String cpf) {
+		if(cpf == null) return null;
 		Cliente cliente = RepositorioCliente.getInstance().buscarCliente(cpf);
 		return cliente;
 	}
@@ -65,6 +69,7 @@ public class ControladorCliente {
 	}
 	
 	public boolean alugarCarro(String placa) {
+		if(placa == null) return false;
 		return ControladorCarro.getInstance().alugarCarro(placa);
 	}
 	public boolean devolverCarro(String placa) {
